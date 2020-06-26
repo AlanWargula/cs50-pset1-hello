@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+// get_float to get user input and printf to output answer
+
+
+int main(void)
+{
+
+    float change;
+    int cents, used;
+
+    do
+    {
+        // user enters postitive amount
+        change = get_float("How much change do you need?\n");
+
+    }
+    while (change <= 0);
+
+    {
+        cents = round(change * 100);
+        used = 0;
+
+        while (cents >= 25)
+        {
+            cents -= 25;
+            used++;
+        }
+        while (cents >= 10)
+        {
+            cents -= 10;
+            used++;
+        }
+        while (cents >= 5)
+        {
+            cents -= 5;
+            used++;
+        }
+        while (cents >= 1)
+        {
+            cents -= 1;
+            used++;
+        }
+// last line of cade === output of min number of coins, integer\n
+        printf("%i\n", used);
+    }
+}
